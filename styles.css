@@ -35,7 +35,7 @@ h1 {
 }
 
 .gridX {
-    background-color: aquamarine;
+    cursor: move;
 }
 
 #changeDiv {
