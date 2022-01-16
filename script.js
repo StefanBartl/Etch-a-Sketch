@@ -8,28 +8,26 @@ const colorBackground = document.querySelector("#colorBackground");
 let colorBackgroundValue = document.querySelector("#colorBackground").value;
 
 
-function Etch (f, g){
+function Etch (num){
 const container = document.getElementById("container");
-let z = f;
-let zz = g;
 
 // Create the grid
-for (let x = 0; x <z; x++){
+for (let x = 0; x <num; x++){
     let grid = document.createElement("div");
     container.appendChild(grid);
     grid.classList.add("grid");
     grid.setAttribute("id", "firstGrids");
-    let newHeight = 960 / z;
-    grid.style.height = newHeight + "px";
-    grid.style.width = newHeight + "px";
+    let a = 960 / num;
+    grid.style.height = a + "px";
+    grid.style.width = a + "px";
 
-            for (let x = 0; x <zz; x++){
+            for (let y = 0; y <num; y++){
                 let gridX = document.createElement("div");
                 grid.appendChild(gridX);
                 gridX.classList.add("gridX");
-                let newHeight = 960 / zz;
-                gridX.style.height = newHeight + "px";
-                gridX.style.width = newHeight + "px";
+                let a = 960 / num;
+                gridX.style.height = a + "px";
+                gridX.style.width = a + "px";
                 gridX.style.backgroundColor = colorBackgroundValue;
             }
 }
@@ -52,11 +50,10 @@ for (let c = 0; c < gridArray.length; c++){
 
 }
 
-// Get the values from the form
-let f = parseInt(document.querySelector("#firstG").value);
-let g = parseInt(document.querySelector("#secoundG").value);
+// Get the value from the form
+let number = parseInt(document.querySelector("#firstG").value);
 // Invoke grid with new values
-Etch(f, g);
+Etch(number);
 
 
 // New grid with new Resolution function
@@ -69,9 +66,8 @@ newGrid.addEventListener('click', function(){
     const wrapper = document.getElementById("wrapper");
     wrapper.appendChild(newContainer);
 
-    let h = parseInt(document.querySelector("#firstG").value);
-    let i = parseInt(document.querySelector("#secoundG").value);
-    Etch(h, i);
+    let newNum = parseInt(document.querySelector("#firstG").value);
+    Etch(newNum);
 });
 
 // Remove drawing function
