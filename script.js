@@ -41,7 +41,7 @@ for (let c = 0; c < gridArray.length; c++){
         gridArray[c].classList.add("gridActive");
     
     });
-    gridArray[c].addEventListener('touchmove', 
+    gridArray[c].addEventListener('touchstart', 
     function(){
         gridArray[c].style.backgroundColor = gridActiveColor;
         gridArray[c].classList.add("gridActive");
