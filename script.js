@@ -1,3 +1,5 @@
+let gridColor = "#fff000"; 
+
 function Etch (f, g){
 const container = document.getElementById("container");
 let z = f;
@@ -25,7 +27,11 @@ for (let x = 0; x <z; x++){
 const gridArray = document.querySelectorAll(".gridX");
 for (let c = 0; c < gridArray.length; c++){
     gridArray[c].addEventListener('mouseenter', 
-    function(){gridArray[c].style.backgroundColor = "red"});
+    function(){
+        gridArray[c].style.backgroundColor = gridColor;
+        gridArray[c].classList.add("gridActive");
+    
+    });
 }
 }
 
@@ -56,3 +62,40 @@ remove.addEventListener("click", function(){
     for (let c = 0; c < gridArray.length; c++){
     gridArray[c].style.backgroundColor = "white"}});
 
+// Change the color of the drawing
+const colorPicker = document.querySelector("#colorPicker");
+let colorPickerValue = document.querySelector("#colorPicker").value;
+
+colorPicker.addEventListener('input', function(){
+    colorPickerValue = colorPicker.value;
+    const gridActiveArray = document.querySelectorAll(".gridActive");
+    for (let c = 0; c < gridActiveArray.length; c++){
+    gridActiveArray[c].style.backgroundColor = colorPickerValue;
+    };
+    gridColor = colorPickerValue;
+})
+
+// Change the color of the background 
+const colorBackground = document.querySelector("#colorBackground");
+let colorBackgroundValue = document.querySelector("#colorBackground").value;
+
+colorBackground.addEventListener('input', function(){
+    colorBackgroundValue = colorBackground.value;
+    const gridArray = document.querySelectorAll(".gridX");
+    for (let c = 0; c < gridArray.length; c++){
+        if (!gridArray[c].classList.contains("gridActive")) //Make sure, the Grid Element isn't drawed. Otherwise some would delete the drawing if changing background color. It's because we want only to change the background - except the backgrond of the drawing elements.
+        gridArray[c].style.backgroundColor = colorBackgroundValue;
+        gridColor = colorBackgroundValue;
+    }}
+);
+
+//Double the Numbers
+
+let firstN = document.querySelector("#firstG");
+let secoundN = document.querySelector("#secoundG");
+firstN.addEventListener('input', function(){
+    document.querySelector("#secoundG").value = document.querySelector("#firstG").value;
+});
+secoundN.addEventListener('input', function(){
+    document.querySelector("#firstG").value = document.querySelector("#secoundG").value;
+});
