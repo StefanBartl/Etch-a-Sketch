@@ -1,10 +1,19 @@
+// Variables
+const colorPicker = document.querySelector("#colorPicker");
+let colorPickerValue = document.querySelector("#colorPicker").value;
+
 let gridActiveColor = "#fff000"; 
+
+const colorBackground = document.querySelector("#colorBackground");
+let colorBackgroundValue = document.querySelector("#colorBackground").value;
+
 
 function Etch (f, g){
 const container = document.getElementById("container");
 let z = f;
 let zz = g;
 
+// Create the grid
 for (let x = 0; x <z; x++){
     let grid = document.createElement("div");
     container.appendChild(grid);
@@ -21,9 +30,11 @@ for (let x = 0; x <z; x++){
                 let newHeight = 960 / zz;
                 gridX.style.height = newHeight + "px";
                 gridX.style.width = newHeight + "px";
+                gridX.style.backgroundColor = colorBackgroundValue;
             }
 }
 
+// Add drawing function via EventListener
 const gridArray = document.querySelectorAll(".gridX");
 for (let c = 0; c < gridArray.length; c++){
     gridArray[c].addEventListener('mouseenter', 
@@ -41,12 +52,14 @@ for (let c = 0; c < gridArray.length; c++){
 
 }
 
+// Get the values from the form
 let f = parseInt(document.querySelector("#firstG").value);
 let g = parseInt(document.querySelector("#secoundG").value);
+// Invoke grid with new values
 Etch(f, g);
 
 
-// New grid function
+// New grid with new Resolution function
 const newGrid = document.querySelector("#btn");
 newGrid.addEventListener('click', function(){
     const container = document.getElementById("container");
@@ -61,17 +74,14 @@ newGrid.addEventListener('click', function(){
     Etch(h, i);
 });
 
-// Remove function
+// Remove drawing function
 const remove = document.getElementById("btnRemove");
 remove.addEventListener("click", function(){
     const gridArray = document.querySelectorAll(".gridX");
     for (let c = 0; c < gridArray.length; c++){
     gridArray[c].style.backgroundColor = colorBackgroundValue}});
 
-// Change the color of the drawing
-const colorPicker = document.querySelector("#colorPicker");
-let colorPickerValue = document.querySelector("#colorPicker").value;
-
+// Change the color of the drawing function
 colorPicker.addEventListener('input', function(){
     colorPickerValue = colorPicker.value;
     const gridActiveArray = document.querySelectorAll(".gridActive");
@@ -81,10 +91,7 @@ colorPicker.addEventListener('input', function(){
     gridActiveColor = colorPickerValue;
 })
 
-// Change the color of the background 
-const colorBackground = document.querySelector("#colorBackground");
-let colorBackgroundValue = document.querySelector("#colorBackground").value;
-
+// Change the color of the background function
 colorBackground.addEventListener('input', function(){
     colorBackgroundValue = colorBackground.value;
     const gridArray = document.querySelectorAll(".gridX");
@@ -94,8 +101,7 @@ colorBackground.addEventListener('input', function(){
     }}
 );
 
-//Double the Numbers
-
+//Double the Numbers in the forms function
 let firstN = document.querySelector("#firstG");
 let secoundN = document.querySelector("#secoundG");
 firstN.addEventListener('input', function(){
