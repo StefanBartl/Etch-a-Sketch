@@ -41,11 +41,6 @@ for (let c = 0; c < gridArray.length; c++){
         gridArray[c].classList.add("gridActive");
     
     });
-    gridArray[c].addEventListener('pointerdown', 
-    function(){
-        gridArray[c].style.backgroundColor = gridActiveColor;
-        gridArray[c].classList.add("gridActive");
-})
 }
 
 }
