@@ -1,4 +1,4 @@
-let gridColor = "#fff000"; 
+let gridActiveColor = "#fff000"; 
 
 function Etch (f, g){
 const container = document.getElementById("container");
@@ -28,13 +28,13 @@ const gridArray = document.querySelectorAll(".gridX");
 for (let c = 0; c < gridArray.length; c++){
     gridArray[c].addEventListener('mouseenter', 
     function(){
-        gridArray[c].style.backgroundColor = gridColor;
+        gridArray[c].style.backgroundColor = gridActiveColor;
         gridArray[c].classList.add("gridActive");
     
     });
     gridArray[c].addEventListener('touchmove', 
     function(){
-        gridArray[c].style.backgroundColor = gridColor;
+        gridArray[c].style.backgroundColor = gridActiveColor;
         gridArray[c].classList.add("gridActive");
 })
 }
@@ -66,7 +66,7 @@ const remove = document.getElementById("btnRemove");
 remove.addEventListener("click", function(){
     const gridArray = document.querySelectorAll(".gridX");
     for (let c = 0; c < gridArray.length; c++){
-    gridArray[c].style.backgroundColor = "white"}});
+    gridArray[c].style.backgroundColor = colorBackgroundValue}});
 
 // Change the color of the drawing
 const colorPicker = document.querySelector("#colorPicker");
@@ -78,7 +78,7 @@ colorPicker.addEventListener('input', function(){
     for (let c = 0; c < gridActiveArray.length; c++){
     gridActiveArray[c].style.backgroundColor = colorPickerValue;
     };
-    gridColor = colorPickerValue;
+    gridActiveColor = colorPickerValue;
 })
 
 // Change the color of the background 
@@ -91,7 +91,6 @@ colorBackground.addEventListener('input', function(){
     for (let c = 0; c < gridArray.length; c++){
         if (!gridArray[c].classList.contains("gridActive")) //Make sure, the Grid Element isn't drawed. Otherwise some would delete the drawing if changing background color. It's because we want only to change the background - except the backgrond of the drawing elements.
         gridArray[c].style.backgroundColor = colorBackgroundValue;
-        gridColor = colorBackgroundValue;
     }}
 );
 
