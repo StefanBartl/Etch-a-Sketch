@@ -32,7 +32,13 @@ for (let c = 0; c < gridArray.length; c++){
         gridArray[c].classList.add("gridActive");
     
     });
+    gridArray[c].addEventListener('touchmove', 
+    function(){
+        gridArray[c].style.backgroundColor = gridColor;
+        gridArray[c].classList.add("gridActive");
+})
 }
+
 }
 
 let f = parseInt(document.querySelector("#firstG").value);
