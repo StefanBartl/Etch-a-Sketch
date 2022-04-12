@@ -1,41 +1,69 @@
 <!Doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="viewport" width="device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
-    <title>Steve's Etch-a-Sketch</title>
-</head>
+<html lang="en" class="theme_prime">
+    <head>
+        <title>+++ Steve's Etch-A-Sketch +++</title>
+        <!-- Javascript und CSS Dateieinbindung -->
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <!-- Favicon & AppleTouch-->
+        <link
+          rel="icon"
+          sizes="16x16"
+          href="graphics/folder_icons/pb_200x200.ico"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="120x120"
+          href="graphics/folder_icons/pb_200x200.png"
+        />
+        <!-- Metadaten  -->
+        <meta name="author" content="Stefan Bartl" />
+        <meta
+          name="description"
+          content=""
+        />
+        <meta
+          name="keywords"
+          content="Web, Development, Browsergame, Javascript, CSS, HTML, Deutsch, English, Austria, Österreich, Vienna, Wien"
+        />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://kit.fontawesome.com/1fb3eb29fd.js" crossorigin="anonymous"></script>
+    
+      </head>
+        
 <body>
-    <div id="wrapper">
 
-    <div id="header">
-        <h1>Enter Etch-A-Sketch Resolution-Size!</h1>
-        <p>Don't go higher than 100x100 - normal PC could not render it properly without having some performance issues.</p>
-    </div>
+    <section class="drawing__wrapper">
 
-    <div id="numberForm">
-        <input type="number" id="firstG" style="width: 30px; height: 30px;" value="16" min="1">
-        <h3>X</h3>
-        <input type="number" id="secoundG" style="width: 30px; height: 30px;" value="16" min="1">
-    </div>
+        <h1 class="headline">Etch-a-Sketch</h1>
+        <p class="headline__p">Digital Drawboad. Project work from WKDVie.</p>
+        
+        <div class="drawing__user-settings">
+            <div class="dr awing__resolution" title="Hint: Don't go higher than 100x100 due tue performance issues!">
+                    <h2 > Change Resolution-Size</h2>
+                    <span class="x__wrapper">
+                        <input type="number" class="form__first numInput" style="width: 30px; height: 30px;" value="16" min="1" step="2">
+                        <h3>X</h3>
+                        <input type="number" class="form__second numInput" style="width: 30px; height: 30px;" value="16" min="1">
+                    </span>
+                    <span class="drawing__buttons">    
+                        <button class="drawing__btn-res">New Resolution</button>
+                        <button class="drawing__btn-rem">Remove</button>
+                    </span>
+            </div>
+            <p>Change drawing: </p><input type="color" class="colorPicker">
+            <p>Change background: </p><input type="color" class="colorBackground">
+        </div>
 
-    <div id="btnDiv">
-        <button id="btn">New Resolution</button>
-        <button id="btnRemove">Remove</button>
-    </div>
-    <div id="container">
-    </div>
-</div>
-    <div id="changeDiv">
-        <p>Change drawing:</p><input type="color" id="colorPicker">
-        <p>Change background:</p><input type="color" id="colorBackground" value="#00FFBF">
-        <p>Have fun! (Stefan B.)</p>
-    </div>
+        <div class="container">
+        </div>
+
+    </section>
         
     </div>
 
-<script src="script.js"></script>
-</body>
+  <!-- #region Javascript-Files-->
+  <script type="text/javascript" src="javascript/script.js"></script>
+  <!-- #endregion --></body>
 
 </html>
