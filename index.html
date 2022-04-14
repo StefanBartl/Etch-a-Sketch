@@ -29,38 +29,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script src="https://kit.fontawesome.com/1fb3eb29fd.js" crossorigin="anonymous"></script>
     
-      </head>
+    </head>
         
-<body>
+    <body>
 
-    <section class="drawing__wrapper">
-      <div class="drawing__wrapper-grid">
-        <h1 class="headline">Etch-a-Sketch</h1>
-        <p class="headline__p">Digital Drawboad. Project work from WKDVie.</p>
+      <section class="wrapper">
+        <div class="wrapper-left">
         
-        <div class="drawing__user-settings">
-            <div class="dr awing__resolution" title="Hint: Don't go higher than 100x100 due tue performance issues!">
-                    <h2 > Change Resolution-Size</h2>
-                    <span class="x__wrapper">
-                        <input type="number" class="form__first numInput" style="width: 30px; height: 30px;" value="16" min="1" step="2">
-                        <h3>X</h3>
-                        <input type="number" class="form__second numInput" style="width: 30px; height: 30px;" value="16" min="1">
+        <h1 class="headline">Etch-a-Sketch</h1>
+        <p class="headline-p">Digital Drawboad. Project work from WKDVie.</p>
+        
+        <div class="user-settings">
+
+            <div class="change-resolution workbench" title="Hint: Don't go higher than 100x100 due tue performance issues!">
+                    <h2>Resolution-Size</h2>
+                    <span class="x-span">
+                        <input type="number" class="resnumber-first input-number"  value="16" min="1" step="2">
+                        <h3 class="resnumber-to">to</h3>
+                        <input type="number" class="resnumber-second input-number" value="16" min="1" step="2">
                     </span>
-                    <span class="drawing__buttons">    
-                        <button class="drawing__btn-res">New Resolution</button>
-                        <button class="drawing__btn-rem">Remove</button>
+                    <span class="buttons-span">    
+                        <button class="btn-res">New Resolution</button>
+                        <button class="btn-rem">Remove</button>
                     </span>
             </div>
-            <p>Change drawing: </p><input type="color" class="colorPicker">
-            <p>Change background: </p><input type="color" class="colorBackground">
-        </div>
-      </div>
-        <div class="container">
+
+            <div class="change-colour workbench" title="Change Drawing or Background-Colours!">
+                <h2 class="change-colour-headline">Colour</h2>
+                <span class="colour">
+                <label for="colorPicker">Drawing</label><input type="color" id="colorPicker">
+                <label for="colorBackground">Background</label><input type="color" id="colorBackground">
+              </span>
+              </div>
+
+          </div>
         </div>
 
-    </section>
-        
-    </div>
+        <div class="wrapper-right">
+        </div>
+
+      </section>
 
   <!-- #region Javascript-Files-->
   <script type="text/javascript" src="javascript/script.js"></script>

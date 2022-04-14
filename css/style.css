@@ -163,6 +163,19 @@ body {
   font-family: var(--font-futura);
 }
 
+.wrapper {
+  display: flex;
+}
+
+  .wrapper-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 4rem;
+    padding-top: 2rem;
+  }
+
 .headline {
     font-size: 5rem;
     line-height: 1;
@@ -171,64 +184,70 @@ body {
     text-align: center;
 }
 
-.headline__p {
-    padding-left: 4rem;
+.headline-p {
     text-align: center;
 }
 
-.drawing__user-settings {
+.user-settings {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-    padding-top: 2rem;
-    padding-left: 4rem;
-    gap: 3rem;
-    justify-content: center;
-    align-items:  center;
+    flex-direction: column;
+    gap: 4rem;
+    margin-top: 3rem;
+    margin-left: -3rem;
+ }
+
+
+ /* ? Resolution */
+
+.change-resolution {
+  /* wrapper */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.x__wrapper {
+.x-span {
+    /* layout for the to */
     display: flex;
-    justify-content: center
 }
 
-  .drawing__buttons {
-    display: flex;
-     justify-content: center;
-}
-
-.numInput { 
-   min-width: 6ch;
+.input-number { 
+  width: 7ch;
 } 
 
-.drawing__user-settings h2  {
-    color: black;
-}
-
-.drawing__resolution{
-    width: max-content;
-    text-align: center;
-}
-
-.drawing__buttons {
-    text-align: center;
-}
-
-.drawing__wrapper                        {
+.colour {
   display: flex;
+  flex-direction: column;
 }
 
-.drawing__wrapper-grid{
-  width: 30vw;
-  padding: 2rem;
+input[type="Color"]{
+  /* Color picking inputs */
+
 }
 
-.container {
+  .buttons-span {
+    display: flex;
+}
+
+input {
+  cursor: pointer;
+}
+
+/* ? Colour */
+
+.change-colour {
+
+}
+
+/* ? Drawing Container */
+
+.wrapper-right {
     display: flex;
     width: fit-content; 
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5vh;
+    margin-top: 5rem;
    }
 
 /* #endregion */
