@@ -165,16 +165,28 @@ body {
 
 .wrapper {
   display: flex;
+  gap: 1rem;
 }
 
   .wrapper-left{
+    /* ? Content Container */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-left: 4rem;
-    padding-top: 2rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
   }
+  
+.wrapper-right {
+  /* ? Drawing Container */
+  display: flex;
+  width: fit-content; 
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+ }
+
 
 .headline {
     font-size: 5rem;
@@ -240,15 +252,6 @@ input {
 
 }
 
-/* ? Drawing Container */
-
-.wrapper-right {
-    display: flex;
-    width: fit-content; 
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5rem;
-   }
 
 /* #endregion */
 
