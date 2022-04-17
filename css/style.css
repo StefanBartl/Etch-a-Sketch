@@ -31,13 +31,12 @@ todo                CSS - What a wonderful & tricky language !                  
 /* #region setup & themes  */
 
 :root {
-
   overflow-wrap: break-word;
   word-wrap: break-word;
 
-  --font-futura: futura-pt,sans-serif;
+  --font-futura: Garamond, sans-serif;
   font-weight: 400;
-  font-style: normal; 
+  font-style: normal;
 
   --fs-400: 1rem;
   --fs-500: 1.125rem;
@@ -45,11 +44,11 @@ todo                CSS - What a wonderful & tricky language !                  
   --fs-700: 2rem;
 
   /* ! test that out if it is working */
-  @media (min-width: 45em){
-  --fs-400: 1.125rem;
-  --fs-500: 1.375rem;
-  --fs-600: 2.75rem;
-  --fs-700: 4.125rem;
+  @media (min-width: 45em) {
+    --fs-400: 1.125rem;
+    --fs-500: 1.375rem;
+    --fs-600: 2.75rem;
+    --fs-700: 4.125rem;
   }
 
   /* ==================  
@@ -59,7 +58,7 @@ todo                CSS - What a wonderful & tricky language !                  
   --wkd-darkgrey: rgb(29, 29, 29);
   --wkd-midgrey: rgb(61, 61, 61);
   --wkd-grey: rgb(107, 106, 106);
-  --wkd-lightgrey: rgb(178, 182, 160);
+  --wkd-lightgrey: #b2b6a0;
   --wkd-white: rgb(255, 255, 255);
   --wkd-red: rgb(255, 0, 0);
   --wkd-green: rgb(82, 150, 34);
@@ -69,26 +68,33 @@ todo                CSS - What a wonderful & tricky language !                  
   --wkd-blueviolett: rgb(21, 23, 76);
   --wkd-yellow: rgb(255, 255, 0);
   --wkd-yellow-dark: rgb(255, 183, 0);
-  --wkd-orange: rgb(255, 102, 0); /* filter: brightness(0) saturate(100%) invert(44%) sepia(24%) saturate(4068%) hue-rotate(1deg) brightness(98%) contrast(106%); */
+  --wkd-orange: rgb(
+    255,
+    102,
+    0
+  ); /* filter: brightness(0) saturate(100%) invert(44%) sepia(24%) saturate(4068%) hue-rotate(1deg) brightness(98%) contrast(106%); */
   --wkd-grapefruit: rgb(239, 95, 87);
   --wkd-pink: rgb(255, 0, 128);
-  --wkd-pinkviolett: rgb(255, 0, 255);  /* filter: brightness(0) saturate(100%) invert(19%) sepia(63%) saturate(4179%) hue-rotate(293deg) brightness(123%) contrast(136%); */
+  --wkd-pinkviolett: rgb(
+    255,
+    0,
+    255
+  ); /* filter: brightness(0) saturate(100%) invert(19%) sepia(63%) saturate(4179%) hue-rotate(293deg) brightness(123%) contrast(136%); */
   --wkd-manner: rgb(235, 184, 173);
 }
 
-:root.theme_prime{
+:root.theme_prime {
+  /*? === design === */
+  --main-colour: var(--wkd-lightgrey);
+  --counter-colour: var(--wkd-torquise);
+  --design-strokes-colour: var(--wkd-grey);
+  --design-strokes-accent-colour: var(--wkd-pinkviolett);
+  --shadows: var(--wkd-white);
 
-/*? === design === */
---main-colour: var(--wkd-lightgrey);
---counter-colour: var(--wkd-pastell-blue);
---design-strokes-colour: var(--wkd-grey);
---design-strokes-accent-colour: var(--wkd-pinkviolett);
---shadows: var(--wkd-white);
-
-/*? === text === */
---text-optimal-width: clamp(45ch, 50%, 75ch);
---text-main-colour: var(--wkd-white);
---link-hover-color: var(--wkd-red);
+  /*? === text === */
+  --text-optimal-width: clamp(45ch, 50%, 75ch);
+  --text-main-colour: var(--wkd-white);
+  --link-hover-color: var(--wkd-red);
 }
 
 /* #endregion */
@@ -155,7 +161,12 @@ select {
 /* #endregion */
 
 
-/* #region General-Design */
+/* #region General-Design & Headline */
+
+button,
+input {
+  cursor: pointer;
+}
 
 body {
   background-color: var(--main-colour);
@@ -165,93 +176,154 @@ body {
 
 .wrapper {
   display: flex;
-  gap: 1rem;
 }
 
-  .wrapper-left{
-    /* ? Content Container */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-left: 1rem;
-    padding-top: 1rem;
-  }
-  
+.wrapper-left {
+  /* ? Content Container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1rem;
+}
+
+.wrapper-left h2 {
+  text-transform: uppercase;
+}
+
 .wrapper-right {
   /* ? Drawing Container */
   display: flex;
-  width: fit-content; 
+  width: 100%;
+  height: calc(100vh - 2rem);
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5rem;
- }
-
+  padding: 1rem;
+}
 
 .headline {
-    font-size: 5rem;
-    line-height: 1;
-    padding-left: 1rem;
-    padding-top: 1rem;
-    text-align: center;
+    /* ? "Etch-a-Sketch" */
+  color: var(--counter-colour);
+  font-size: 5rem;
+  line-height: 1;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  text-align: center;
 }
 
 .headline-p {
-    text-align: center;
+    /* ? Digital Drawboard. Project Work from WKDVie. */
+  font-size: var(--fs-700);
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: bolder;
 }
 
+/* #endregion */
+
+
+/* #region User Input */
+
 .user-settings {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 4rem;
-    margin-top: 3rem;
-    margin-left: -3rem;
- }
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 3rem;
+}
 
-
- /* ? Resolution */
+/* ! Resolution-Section */
 
 .change-resolution {
   /* wrapper */
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
 }
 
+
 .x-span {
-    /* layout for the to */
-    display: flex;
-}
-
-.input-number { 
-  width: 7ch;
-} 
-
-.colour {
+  /* layout for the to */
   display: flex;
-  flex-direction: column;
 }
 
-input[type="Color"]{
-  /* Color picking inputs */
-
+.input-number {
+  width: 7ch;
+  text-align: center;
+  border: none;
 }
 
-  .buttons-span {
-    display: flex;
+.resnumber-to {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
-input {
-  cursor: pointer;
+.colour-buttons-span {
+  display: flex;
 }
 
-/* ? Colour */
+.btn-res,
+.btn-rem {
+  border: none;
+  width: fit-content;
+  margin: 2%;
+  background-color: var(--wkd-lightgrey);
+  color: var(--text-main-colour);
+  transform: scale(1);
+  transition: all 0.3s ease-in;
+}
+
+.btn-res:hover,
+.btn-rem:hover {
+  transform: scale(1.3);
+  color: var(--wkd-torquise);
+  font-weight: bolder;
+}
+
+/* ! Colour section */
 
 .change-colour {
-
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
+.colour {
+  /* Colour-Span Elememt */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.colour label {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.change-colour-headline {
+  text-align: center;
+}
+
+input[type="Color"] {
+  /* Color picking inputs */
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+}
+
+.borderWorkbench {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.borderSpan {
+  display: flex;
+  gap: 1rem;
+  margin-top: -.5rem;
+}
 
 /* #endregion */
 
@@ -263,18 +335,27 @@ input {
 
 /* #region Transitions */
 
-
 /* #endregion */
 
 
 /* #region Animations */
 
-  @keyframes rotate-element-animation {
-   0% {transform:perspective(300px) rotateY(0deg)}
-   25% {transform:perspective(300px) rotateY(90deg)}
-   50% {transform:perspective(300px) rotateY(180deg)}
-   75% {transform:perspective(300px) rotateY(270deg)}
-   100% {transform:perspective(300px) rotateY(360deg)}
+@keyframes rotate-element-animation {
+  0% {
+    transform: perspective(300px) rotateY(0deg);
+  }
+  25% {
+    transform: perspective(300px) rotateY(90deg);
+  }
+  50% {
+    transform: perspective(300px) rotateY(180deg);
+  }
+  75% {
+    transform: perspective(300px) rotateY(270deg);
+  }
+  100% {
+    transform: perspective(300px) rotateY(360deg);
+  }
 }
 
 /* #endregion */
@@ -292,7 +373,7 @@ input {
 /* #region jobs to-do */
 
 /*
-todo    
-*/      
+todo    Style the buttons
+*/
 
 /* #endregion */

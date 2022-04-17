@@ -34,32 +34,46 @@
     <body>
 
       <section class="wrapper">
+
         <div class="wrapper-left">
         
         <h1 class="headline">Etch-a-Sketch</h1>
-        <p class="headline-p">Digital Drawboad. Project work from WKDVie.</p>
+        <p class="headline-p">Digital Drawboard. <br>Project-Work from WKDVie.</p>
         
         <div class="user-settings">
 
+
             <div class="change-resolution workbench" title="Hint: Don't go higher than 100x100 due tue performance issues!">
-                    <h2>Resolution-Size</h2>
+                    <h2 class="change-resolution-headline">Resolution-Size</h2>
                     <span class="x-span">
-                        <input type="number" class="resnumber-first input-number"  value="16" min="1" step="2">
+                        <input type="number" class="resnumber-first input-number"  value="25" min="1">
                         <h3 class="resnumber-to">to</h3>
-                        <input type="number" class="resnumber-second input-number" value="16" min="1" step="2">
-                    </span>
-                    <span class="buttons-span">    
-                        <button class="btn-res">New Resolution</button>
-                        <button class="btn-rem">Remove</button>
+                        <input type="number" class="resnumber-second input-number" value="25" min="1">
+                        <button class="bind-btn" title="Click to bind X to the Y!" data-bind="on">bind</button>
+                      </span>
+                    <span class="colour-buttons-span">    
+                        <button class="btn-res" title="Click to remove the actual sheet and a new one with the resolution you choose!">New Resolution</button>
+                        <button class="btn-rem" title="Click to remove the drawing and get a brandnew sheet of 'paper' ! :-)">Remove Drawing</button>
                     </span>
             </div>
 
             <div class="change-colour workbench" title="Change Drawing or Background-Colours!">
                 <h2 class="change-colour-headline">Colour</h2>
                 <span class="colour">
-                <label for="colorPicker">Drawing</label><input type="color" id="colorPicker">
-                <label for="colorBackground">Background</label><input type="color" id="colorBackground">
+                <label for="colorPickerDrawing">Drawing</label><input type="color" id="colorPickerDrawing">
+                <label for="colorPickerBackground">Background</label><input type="color" id="colorPickerBackground">
+                </span>
+                <div class="borderWorkbench">
+                <p>Border</p>
+                <span class="borderSpan">
+                  <input type="color" id="colorPickerBorder">
+                  <select name="selectBorderSize" id="selectBorderSize">
+                    <option value="0" id="borderSize0">0</option>
+                    <option value="1" id="borderSize1" selected>1</option>
+                    <option value="2" id="borderSize2">2</option>
+                </select>
               </span>
+              </div>
               </div>
 
           </div>
