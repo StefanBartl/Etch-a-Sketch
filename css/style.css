@@ -176,6 +176,7 @@ body {
 
 .wrapper {
   display: flex;
+  align-items: center;
 }
 
 .wrapper-left {
@@ -184,31 +185,39 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-left: 1rem;
+  padding: 1rem;
 }
 
+.headline,
 .wrapper-left h2 {
   text-transform: uppercase;
+}
+
+.headlineSpan{
+ text-transform: lowercase;
 }
 
 .wrapper-right {
   /* ? Drawing Container */
   display: flex;
+  height: 100vh;
   width: 100%;
-  height: calc(100vh - 2rem);
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1rem;
 }
 
 .headline {
     /* ? "Etch-a-Sketch" */
   color: var(--counter-colour);
-  font-size: 5rem;
-  line-height: 1;
-  padding-left: 1rem;
-  padding-top: 1rem;
+  font-size: 3rem;
   text-align: center;
+  position: relative;
+}
+.headline::before {
+  position: absolute;
+  content: "";
+  border: solid 2px var(--counter-colour); 
+  bottom: 0;
+  left: 0;  
+  width: 100%;
 }
 
 .headline-p {
@@ -216,8 +225,18 @@ body {
   font-size: var(--fs-700);
   text-align: center;
   text-transform: capitalize;
-  font-weight: bolder;
 }
+
+.headline-image {
+  width: 6rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  }
+
+  .headlineSpan2 {
+ }
 
 /* #endregion */
 
@@ -228,8 +247,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  gap: 4rem;
-  margin-top: 3rem;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 /* ! Resolution-Section */
@@ -242,6 +261,10 @@ body {
   gap: 1rem;
 }
 
+
+.change-resolution-headline {
+text-align: center;
+}
 
 .x-span {
   /* layout for the to */
@@ -257,10 +280,6 @@ body {
 .resnumber-to {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-}
-
-.colour-buttons-span {
-  display: flex;
 }
 
 .btn-res,
@@ -281,12 +300,16 @@ body {
   font-weight: bolder;
 }
 
+.bind-btn {
+  margin-left: .5rem;
+  border: none;
+}
+
 /* ! Colour section */
 
 .change-colour {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 }
 
 .colour {
@@ -303,6 +326,10 @@ body {
 
 .change-colour-headline {
   text-align: center;
+}
+
+.colour-buttons-span {
+  display: flex;
 }
 
 input[type="Color"] {
@@ -324,6 +351,8 @@ input[type="Color"] {
   gap: 1rem;
   margin-top: -.5rem;
 }
+
+
 
 /* #endregion */
 

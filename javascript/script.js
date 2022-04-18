@@ -40,14 +40,16 @@ function NewWrapperR() {
 function CreateNewGrid(resNum_first, resNum_second) {
   // Get correct wrapper
   const actualWrapper_right = document.querySelector(".wrapper-right");
+
   // Calculate cell width and height
   const cellOffsetWidth =
     document.querySelector(".wrapper-right").offsetWidth /
     document.querySelector(".resnumber-first").value;
-  const celOffsetHeight =
+  const cellOffsetHeight =
     document.querySelector(".wrapper-right").offsetHeight /
     document.querySelector(".resnumber-second").value;
-  // Create and append the first row
+
+    // Create and append the first row
   for (let column = 0; column < resNum_first; column++) {
     let firstrow = document.createElement("div");
     firstrow.classList.add("grid-firstrow");
@@ -58,7 +60,7 @@ function CreateNewGrid(resNum_first, resNum_second) {
       // Set grid cells attributes
       gridC.classList.add("grid");
       gridC.id = `C${column}R${cellC}`;
-      gridC.style.height = `${celOffsetHeight}px`;
+      gridC.style.height = `${cellOffsetHeight}px`;
       gridC.style.width = `${cellOffsetWidth}px`;
       gridC.style.backgroundColor = colorPickerBackground.value;
       // Append the grid cell to corresponend first row cell

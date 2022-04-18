@@ -8,12 +8,12 @@
         <link
           rel="icon"
           sizes="16x16"
-          href="graphics/folder_icons/pb_200x200.ico"
+          href="graphics/etchasketch.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="120x120"
-          href="graphics/folder_icons/pb_200x200.png"
+          href="graphics/etchasketch.png"
         />
         <!-- Metadaten  -->
         <meta name="author" content="Stefan Bartl" />
@@ -36,12 +36,17 @@
       <section class="wrapper">
 
         <div class="wrapper-left">
-        
-        <h1 class="headline">Etch-a-Sketch</h1>
-        <p class="headline-p">Digital Drawboard. <br>Project-Work from WKDVie.</p>
-        
-        <div class="user-settings">
 
+          <div class="headline-div" title="Project-Work from WKDVie.">
+            <h1 class="headline">Etch<br><span class="headlineSpan">a</span><br>Sketch</h1>
+            <span class="headlineSpan2">
+            <p class="headline-p">Drawboard.</p>
+            <img src="graphics/etchasketch.png" class="headline-image" alt="Icon of a Etch-a-Sketcch Game">
+            <p class="headline-p">Digital</p>
+          </span>
+           </div>
+
+        <div class="user-settings">
 
             <div class="change-resolution workbench" title="Hint: Don't go higher than 100x100 due tue performance issues!">
                     <h2 class="change-resolution-headline">Resolution-Size</h2>
@@ -49,7 +54,7 @@
                         <input type="number" class="resnumber-first input-number"  value="25" min="1">
                         <h3 class="resnumber-to">to</h3>
                         <input type="number" class="resnumber-second input-number" value="25" min="1">
-                        <button class="bind-btn" title="Click to bind X to the Y!" data-bind="on">bind</button>
+                        <button class="bind-btn" title="Click to bind the x and y values!" data-bind="on">bind</button>
                       </span>
                     <span class="colour-buttons-span">    
                         <button class="btn-res" title="Click to remove the actual sheet and a new one with the resolution you choose!">New Resolution</button>
