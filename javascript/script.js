@@ -1,8 +1,22 @@
-/*
-todo    Save Drawing fucntion
-todo    Draw Frame choose
-*/
+// #region Table of Content 
+/*    
+!                 Etch-a-Sketch Main-Javascript-Stylesheet
+?                                    powered by
+!                                     Stefan Bartl
+!                      (WKDSteVIE / WKDMinerva)
+?                                          2021                                                                                                                                                                        
+?                  ________________________________                                                                                                                                                                                                  
+!                                   Table of Content
+?                                     -) Variables & Value                                                                                                
+?                                     -) Functions
+?                                     -) Event-Listener
+?                                     -) Toggle resolution values together
+?                                     -) Start the application
+todo           Javascript - What a wonderful & tricky language !                                                                                                                                                                                                                                                                                                                                                                 */
+//#endregion
 
+
+//#region Variables & Values
 // ? Constants
 const wrapper = document.querySelector(".wrapper");
 const wrapper_right = document.querySelector(".wrapper-right");
@@ -16,12 +30,18 @@ const selectBorderSize = document.querySelector("#selectBorderSize");
 const resNum_first = document.querySelector(".resnumber-first");
 const resNum_second = document.querySelector(".resnumber-second");
 const bindbtn = document.querySelector(".bind-btn");
+const mylogo = document.querySelector(".mylogo");
+const githublogo = document.querySelector(".githublogo");
 
 // ? Set starting values
 resNum_first.value = 30;
 resNum_second.value = 30;
 colorPickerDrawing.value = "#fefefe"; // set first drawing-colour #fefefe - white
 colorPickerBackground.value = "#73d216"; // set first background-colour #73d216 - green
+colorPickerBorder.value = "#1d1d1d"; // set first border-colour #1d1d1d - darkgrey;
+
+//#endregion
+
 
 //#region Functions
 
@@ -113,7 +133,7 @@ function ChangeBackgroundColour () {
     if (actualGridArray[cell].getAttribute("data-active") !== "1")
       // Select all cells which are not been drawed yet and change background color
       actualGridArray[cell].style.backgroundColor =
-        document.querySelector("#colorBackground").value;
+        document.querySelector("#colorPickerBackground").value;
   };
 };
 
@@ -147,7 +167,16 @@ function RemoveSheet () {
   };
 };
 
+// ? Open a new browser tab 
+function OpenInNewTab(href) {
+  Object.assign(document.createElement('a'), {
+    target: '_blank',
+    href: href,
+  }).click();
+};
+
 //#endregion
+
 
 //#region Event-Listener
 
@@ -175,7 +204,17 @@ colorPickerBorder.addEventListener("input", ChangeBorderColour);
 // ? Change the size of the border Event-Listener
 selectBorderSize.addEventListener("input", SetBorder);
 
+// ? Jump to my Portfolio
+mylogo.addEventListener("click", ()=>{
+  OpenInNewTab("https://stefanbartl.github.io/Portfolio/");
+});
+
+// ? Jump to the Project Github-Repository
+githublogo.addEventListener("click", ()=>{
+  OpenInNewTab("https://github.com/StefanBartl/Etch-a-Sketch");
+});
 //#endregion
+
 
 //#region Toggle resolution values
 
@@ -211,9 +250,11 @@ bindbtn.addEventListener("click", () => {
 
 //#endregion
 
-// ? === Start  ===
-// ! === Page ===
 
-// Start / Initiate the application with invoke the grid with starting values
+// ?      === Start  ===
+// todo ===  the   ===
+// !       === Page ===
+
+// Start / Initiate the application by invoking the grid with the starting values
 NewSheet(resNum_first.value, resNum_second.value);
 
