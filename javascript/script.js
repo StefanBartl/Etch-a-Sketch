@@ -10,7 +10,6 @@
 ?                                     -) Variables & Value                                                                                                
 ?                                     -) Functions
 ?                                     -) Event-Listener
-?                                     -) Toggle resolution values together
 ?                                     -) Start the application
 todo           Javascript - What a wonderful & tricky language !                                                                                                                                                                                                                                                                                                                                                                 */
 //#endregion
@@ -56,6 +55,20 @@ function NewWrapperR() {
   wrapper.appendChild(newWrapperR);
 }
 
+
+// ? Functions to bind the numbers in the input forms to eachother
+function DoubleFirst() {
+  // Set second value to first
+  document.querySelector(".resnumber-second").value =
+    document.querySelector(".resnumber-first").value;
+};
+function DoubleSecond() {
+  // Set first value to second
+  document.querySelector(".resnumber-first").value =
+    document.querySelector(".resnumber-second").value;
+};
+
+
 // ? Create the Cells od the Grid and append it to DOM
 function CreateNewGrid(resNum_first, resNum_second) {
   // Get correct wrapper
@@ -89,6 +102,7 @@ function CreateNewGrid(resNum_first, resNum_second) {
   };
 };
 
+
 // ? Add drawing function
 function DrawFunction() {
   // get all cells of the grid
@@ -107,6 +121,7 @@ function DrawFunction() {
   }
 }
 
+
 // ? Set the border width and colour of the grid
 function SetBorder (borderColour) {
   // Get actual grid and loop trogh it
@@ -116,6 +131,7 @@ function SetBorder (borderColour) {
   }
 }
 
+
 // ? Set only border colour of the grid
 function ChangeBorderColour () {
   // Get actual grid and loop trogh it
@@ -124,6 +140,7 @@ function ChangeBorderColour () {
       actualGridArray[cell].style.borderColor = colorPickerBorder.value;
   }
 }
+
 
 // ? Change the colour of the grid background
 function ChangeBackgroundColour () {
@@ -137,6 +154,7 @@ function ChangeBackgroundColour () {
   };
 };
 
+
 // ? Change the colour to "draw"
 function ChangeDrawingColour () {
   // Get actual grid and loop trogh it
@@ -148,6 +166,7 @@ function ChangeDrawingColour () {
   };
 };
 
+
 // ? Create a new sheet - removes old Wrapper, creates and append new one
 function NewSheet(resNum_first, resNum_second) {
   NewWrapperR();
@@ -155,6 +174,7 @@ function NewSheet(resNum_first, resNum_second) {
   SetBorder();
   DrawFunction();
 }
+
 
 // ? Remove the drawing from the sheet
 function RemoveSheet () {
@@ -166,6 +186,7 @@ function RemoveSheet () {
       actualGridArray[0].style.backgroundColor;
   };
 };
+
 
 // ? Open a new browser tab 
 function OpenInNewTab(href) {
@@ -180,7 +201,30 @@ function OpenInNewTab(href) {
 
 //#region Event-Listener
 
-// ? Event Listener: New grid with new Resolution
+// ? Bind the x value to the y value
+resNum_first.addEventListener("input", DoubleFirst);
+resNum_second.addEventListener("input", DoubleSecond);
+
+// ? Toggle binding
+bindbtn.addEventListener("click", () => {
+  // Toggle bind data-attribute (at start it is set to on)
+  bindbtn.getAttribute("data-bind") === "off"
+    ? bindbtn.setAttribute("data-bind", "on")
+    : bindbtn.setAttribute("data-bind", "off");
+
+  // Binding depends on bind data-attribute state
+  if (bindbtn.getAttribute("data-bind") === "on") {
+    resNum_first.addEventListener("input", DoubleFirst);
+    resNum_second.addEventListener("input", DoubleSecond);
+    document.querySelector(".bind-btn").innerText = "unbind";
+  } else {
+    resNum_first.removeEventListener("input", DoubleFirst);
+    resNum_second.removeEventListener("input", DoubleSecond);
+    document.querySelector(".bind-btn").innerText = "bind";
+  }
+});
+
+// ? New grid with new Resolution 
 setResolution.addEventListener("click", function () {
   // Invoke a New Sheet with correct (user input) values
   let newRes_first = document.querySelector(".resnumber-first").value;
@@ -188,20 +232,19 @@ setResolution.addEventListener("click", function () {
   NewSheet(newRes_first, newRes_second);
 });
 
-// ? Remove the drawing Event-Listener
+// ? Remove the drawing 
 removeDrawing.addEventListener("click", RemoveSheet);
 
-// ? Change the color of the drawing Event-Listener
+// ? Change the color of the drawing
 colorPickerDrawing.addEventListener("input", ChangeDrawingColour);
 
-// ? Change the color of the background function
+// ? Change the color of the background
 colorPickerBackground.addEventListener("input", ChangeBackgroundColour);
 
-
-// ? Change the color of the border Event-Listener
+// ? Change the color of the border
 colorPickerBorder.addEventListener("input", ChangeBorderColour);
 
-// ? Change the size of the border Event-Listener
+// ? Change the size of the border
 selectBorderSize.addEventListener("input", SetBorder);
 
 // ? Jump to my Portfolio
@@ -213,41 +256,6 @@ mylogo.addEventListener("click", ()=>{
 githublogo.addEventListener("click", ()=>{
   OpenInNewTab("https://github.com/StefanBartl/Etch-a-Sketch");
 });
-//#endregion
-
-
-//#region Toggle resolution values
-
-// ? Functions to bind the numbers in the input forms to eachother
-
-function DoubleFirst() {
-  // Set second value to first
-  document.querySelector(".resnumber-second").value =
-    document.querySelector(".resnumber-first").value;
-};
-
-function DoubleSecond() {
-  // Set first value to second
-  document.querySelector(".resnumber-first").value =
-    document.querySelector(".resnumber-second").value;
-};
-
-bindbtn.addEventListener("click", () => {
-  // Toggle bind data-attribute (at start it is set to on)
-  bindbtn.getAttribute("data-bind") === "off"
-    ? bindbtn.setAttribute("data-bind", "on")
-    : bindbtn.setAttribute("data-bind", "off");
-
-  // Binding depends on bind data-attribute state
-  if (bindbtn.getAttribute("data-bind") === "on") {
-    resNum_first.addEventListener("input", DoubleFirst);
-    resNum_second.addEventListener("input", DoubleSecond);
-  } else {
-    resNum_first.removeEventListener("input", DoubleFirst);
-    resNum_second.removeEventListener("input", DoubleSecond);
-  }
-});
-
 //#endregion
 
 
