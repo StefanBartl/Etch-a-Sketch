@@ -30,46 +30,47 @@
         <script src="https://kit.fontawesome.com/1fb3eb29fd.js" crossorigin="anonymous"></script>
     
     </head>
-        
     <body>
+
+      <p class="language-text"></p>
 
       <section class="wrapper">
 
         <div class="wrapper-left">
 
-            <div class="headline-div" title="Project-Work from WKDVie.">
+            <div class="headline-div">
               <h1 class="headline">Etch<br><span class="headlineSpan">a</span><br>Sketch</h1>
               <span class="headlineSpan2">
-              <p class="headline-p">Digital.</p>
-              <img src="graphics/etchasketch.png" class="headline-image" alt="Icon of a Etch-a-Sketcch Game">
-              <p class="headline-p">Drawboard.</p>
-            </span>
+              <p class="headline-p1 headline-p"></p>
+              <img src="graphics/etchasketch.png" class="headline-image">
+              <p class="headline-p2 headline-p"></p>
+              </span>
             </div>
 
           <div class="user-settings">
 
-              <div class="change-resolution workbench" title="Hint: Don't go higher than 100x100 due tue performance issues!">
-                      <h2 class="change-resolution-headline">Resolution-Size</h2>
+              <div class="change-resolution workbench">
+                      <h2 class="change-resolution-headline"></h2>
                       <span class="x-span">
                           <input type="number" class="resnumber-first input-number"  value="25" min="1">
                           <h3 class="resnumber-to">to</h3>
                           <input type="number" class="resnumber-second input-number" value="25" min="1">
-                          <button class="bind-btn" title="Click to bind the x and y values!" data-bind="on">unbind</button>
+                          <button class="bind-btn" data-bind="on"></button>
                         </span>
                       <span class="colour-buttons-span">    
-                          <button class="btn-res" title="Click to remove the actual sheet and a new one with the resolution you choose!">New Resolution</button>
-                          <button class="btn-rem" title="Click to remove the drawing and get a brandnew sheet of 'paper' ! :-)">Remove Drawing</button>
+                          <button class="btn-res"></button>
+                          <button class="btn-rem"></button>
                       </span>
               </div>
 
-              <div class="change-colour workbench" title="Change Drawing or Background-Colours!">
-                  <h2 class="change-colour-headline">Colour</h2>
+              <div class="change-colour workbench">
+                  <h2 class="change-colour-headline"></h2>
                   <span class="colour">
-                  <label for="colorPickerDrawing">Drawing</label><input type="color" id="colorPickerDrawing">
-                  <label for="colorPickerBackground">Background</label><input type="color" id="colorPickerBackground">
+                  <label for="colorPickerDrawing"></label><input type="color" id="colorPickerDrawing">
+                  <label for="colorPickerBackground"></label><input type="color" id="colorPickerBackground">
                   </span>
                   <div class="borderWorkbench">
-                  <p>Border</p>
+                  <p class="border-text"></p>
                   <span class="borderSpan">
                     <input type="color" id="colorPickerBorder">
                     <select name="selectBorderSize" id="selectBorderSize">
@@ -81,19 +82,19 @@
                 </div>
                 </div>
 
-            </div>
+          </div>
 
           <div class="logos-div">
-              <img src="./graphics/folder_icons/dev_logo.png" class="mylogo logos" title="Click to jump to my Portfolio!" alt="My personal Logo">
-              <img src="./graphics/folder_icons/github-original-wordmark.svg" class="githublogo logos" title="Click to jump to the Github-Repository of this project!" alt="">
+              <img src="./graphics/folder_icons/dev_logo.png" class="mylogo logos">
+              <img src="./graphics/folder_icons/github-original-wordmark.svg" class="githublogo logos">
           </div>
             <div class="wrapper-right">
           </div>
         </div>
       </section>
 
-  <!-- #region Javascript-Files-->
-  <script type="text/javascript" src="javascript/script.js"></script>
-  <!-- #endregion --></body>
-
+    <!-- #region Javascript-Files-->
+    <script type="text/javascript" src="javascript/script.js"></script>
+    <!-- #endregion -->
+  </body>
 </html>

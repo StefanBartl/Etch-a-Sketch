@@ -16,6 +16,7 @@ todo           Javascript - What a wonderful & tricky language !                
 
 
 //#region Variables & Values
+
 // ? Constants
 const wrapper = document.querySelector(".wrapper");
 const wrapper_right = document.querySelector(".wrapper-right");
@@ -38,6 +39,100 @@ resNum_second.value = 30;
 colorPickerDrawing.value = "#fefefe"; // set first drawing-colour #fefefe - white
 colorPickerBackground.value = "#73d216"; // set first background-colour #73d216 - green
 colorPickerBorder.value = "#1d1d1d"; // set first border-colour #1d1d1d - darkgrey;
+
+// ? DOM-Elements only for translation 
+const headline_div = document.querySelector(".headline-div");
+const headlineImage = document.querySelector(".headline-image");
+const headline_p1 = document.querySelector(".headline-p1");
+const headline_p2 = document.querySelector(".headline-p2");
+const changeResolution = document.querySelector(".change-resolution");
+const changeResolutionHeadline = document.querySelector(".change-resolution-headline");
+const resnumberTo = document.querySelector(".resnumber-to");
+const changeColour = document.querySelector(".change-colour");
+const changeColourHeadline = document.querySelector(".change-colour-headline");
+const borderText = document.querySelector(".border-text");
+const languageText = document.querySelector(".language-text");
+
+//#endregion
+
+
+//#region Language / Translation
+
+// ? Setup Translation 
+// get setted language from local storage or browser language and store it there
+const language = localStorage.language || navigator.language;
+// This is not the best way, regexp would be better to proof of 'de'
+language[0] === "d" && language[1] === "e" ? localStorage.language = "de" : "en";
+// Set correct translation text on page
+language === "en" ? languageText.innerText = ".de" : languageText.innerText = ".en";
+language === "en" ? languageText.title = "Übersetze diese Seite auf English" : languageText.title = "Translate Page to German";
+
+// ? English Library
+function English(){
+headline_div.title = "A Project-Work from Steve Bartl.";
+headline_p1.innerText = "Digital.";
+headline_p2.innerText = "Drawboard.";
+headlineImage.alt = "Icon of an analog Etch-a-Sketch Game";
+changeResolution.title = "Hint: Don't go higher than 100x100 due tue performance issues!";
+changeResolutionHeadline.innerText = "Resolution-Size";
+bindbtn.innerText = "unbind";
+bindbtn.title = "Click to bind/unbind the x and y values!";
+setResolution.innerText = "New Resolution";
+setResolution.title = "Click to remove the actual sheet and a new one with the resolution you choose!";
+removeDrawing.innerText = "Remove Drawing";
+removeDrawing.title = "Click to remove the drawing and get a brandnew sheet of 'paper' !";
+changeColour.title = "Change Drawing or Background-Colours!";
+changeColourHeadline.innerText = "Colour";
+colorPickerDrawing.innerText = "Drawing";
+colorPickerBackground,innerText = "Background";
+borderText.innerText = "Border";
+mylogo.title = "Click to jump to my personal Portfolio!";
+mylogo.alt = "My actual personal Logo";
+githublogo.title="Click to jump to the Github-Repository of this project!";
+githublogo.alt= "Github Logo";
+}
+
+// ? German Library
+function German(){
+headline_div.title = "Ein Projekt von Steve Bartl.";
+headline_p1.innerText = "Digitales.";
+headline_p2.innerText = "Reißbrett.";
+headlineImage.alt = "Logo eines analogen Etch-a-Sketcch Spiels";
+changeResolution.title = "Tipp: Bleibe unter 100x100 aus Perfomance Gründen!";
+changeResolutionHeadline.innerText = "Auflösungs-Größe";
+bindbtn.innerText = "lösen";
+bindbtn.title = "Klicke um die x und y Werte zu binden / zu lösen!";
+setResolution.innerText = "Neue Auflösung";
+setResolution.title = "Klicke um das aktuelle Blatt zu verwerfen und ein neues mit neuer Auflösung zu öffnen!";
+removeDrawing.innerText = "Lösche deine Zeichnung";
+removeDrawing.title = "Klicke um die Zeihung zu löschen und ein brandneues Blatt 'Papier* zu bekommen !";
+changeColour.title = "Hintergung- und Zeihnungsfarbe ändern";
+changeColourHeadline.innerText = "Farbe";
+colorPickerDrawing.innerText = "Zeichung";
+colorPickerBackground,innerText = "Hintergrund";
+borderText.innerText = "Rand";
+mylogo.title = "Klicke um zu meiner persönlichen Portfolio-Page zu springen!";
+mylogo.alt = "Mein aktuelles persönliches Logo";
+githublogo.title="klicke um zum Guthub-Repository dieses Projekts zu springen!";
+githublogo.alt= "Github Logo";
+}
+
+// ? Initial Translation
+localStorage.language === "en" ? English() : German();
+
+// ? Change Language
+languageText.addEventListener("click", ()=>{
+  // Check for the actual language
+  if(localStorage.language === "en"){
+    // Invoke opposite language
+    German();
+    // Store new language in localStorage
+    localStorage.language = "de";
+  } else {
+    English();
+    localStorage.language = "en";
+  };
+})
 
 //#endregion
 
@@ -216,11 +311,15 @@ bindbtn.addEventListener("click", () => {
   if (bindbtn.getAttribute("data-bind") === "on") {
     resNum_first.addEventListener("input", DoubleFirst);
     resNum_second.addEventListener("input", DoubleSecond);
-    document.querySelector(".bind-btn").innerText = "unbind";
-  } else {
+    localStorage.language === "en" 
+      ? document.querySelector(".bind-btn").innerText = "unbind"
+      : document.querySelector(".bind-btn").innerText = "lösen";
+    } else {
     resNum_first.removeEventListener("input", DoubleFirst);
     resNum_second.removeEventListener("input", DoubleSecond);
-    document.querySelector(".bind-btn").innerText = "bind";
+    localStorage.language === "en" 
+      ? document.querySelector(".bind-btn").innerText = "bind"
+      : document.querySelector(".bind-btn").innerText = "binden";
   }
 });
 
