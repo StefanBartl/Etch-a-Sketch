@@ -8,7 +8,7 @@
 ?                  ________________________________                                                                                                                                                                                                  
 !                                   Table of Content
 ?                                     -) CSS-Setup                                                                                                
-?                                     -) General-Design & Headline
+?                                     -) General, Wrappers, & Headline
 ?                                     -) User Input
 todo                CSS - What a wonderful & tricky language !                                                                                                                                                                                                                                                                                                                                                                 */
 /*#endregion*/
@@ -154,19 +154,18 @@ select {
 /* #endregion */
 
 
-/* todo order & minimize Rulesets! */
-
-/* #region General-Design & Headline */
-
-button,
-input {
-  cursor: pointer;
-}
+/* #region General, Wrapper & Headlines */
 
 body {
   background-color: var(--main-colour);
   color: var(--text-main-colour);
   font-family: var(--font-futura);
+}
+
+button,
+input,
+.language-text  {
+  cursor: pointer;
 }
 
 .wrapper {
@@ -190,13 +189,6 @@ body {
   left: .5rem;
   font-size: var(--fs-500);
   color: var(--text-main-colour);
-  cursor: pointer;
-  transition: transform 1s ease;
-}
-
-.language-text:hover{
-  transform: scale(1.3);
-  color: var(--wkd-torquise);
 }
 
 .headline,
@@ -208,16 +200,7 @@ body {
  text-transform: lowercase;
 }
 
-.wrapper-right {
-  /* ? Drawing Container */
-  display: flex;
-  height: 100vh;
-  width: 100%;
-  margin-bottom: auto;
-}
-
 .headline {
-    /* ? "Etch-a-Sketch" */
   color: var(--wkd-white);
   font-size: 3rem;
   text-align: center;
@@ -230,9 +213,7 @@ body {
   border-color: var(--counter-colour);
 }
 
-
 .headline-p {
-    /* ? Digital Drawboard. Project Work from WKDVie. */
   font-size: var(--fs-700);
   text-align: center;
   text-transform: capitalize;
@@ -246,8 +227,13 @@ body {
   margin-bottom: .5rem;
   }
 
-  .headlineSpan2 {
- }
+  .wrapper-right {
+    /* ? Drawing Container */
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    margin-bottom: auto;
+  }
 
 /* #endregion */
 
@@ -264,7 +250,6 @@ body {
 /* ! Resolution-Section */
 
 .change-resolution {
-  /* wrapper */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -276,7 +261,6 @@ text-align: center;
 }
 
 .x-span {
-  /* layout for the to */
   display: flex;
 }
 
@@ -299,12 +283,6 @@ text-align: center;
   background-color: var(--wkd-lightgrey);
   color: var(--text-main-colour);
   transform: scale(1);
-  transition: color 0.3s ease-in;
-}
-
-.btn-res:hover,
-.btn-rem:hover {
-  color: var(--wkd-torquise);
 }
 
 .btn-res {
@@ -316,11 +294,6 @@ text-align: center;
   margin-left: .5rem;
   border: none;
   border-radius: 20%;
-  transition: color 0.3s ease-in;
-}
-
-.bind-btn:hover {
-  color: var(--counter-colour);
 }
 
 .bind-btn[data-bind = "on"]{
@@ -335,7 +308,6 @@ text-align: center;
 }
 
 .colour {
-  /* Colour-Span Elememt */
   display: flex;
   gap: 0.5rem;
 }
@@ -354,7 +326,6 @@ text-align: center;
 }
 
 input[type="Color"] {
-  /* Color picking inputs */
   margin-left: auto;
   margin-right: auto;
   border: none;
@@ -375,19 +346,6 @@ input[type="Color"] {
   margin-top: -.5rem;
 }
 
-#colorPickerDrawing, 
-#colorPickerBackground, 
-#colorPickerBorder {
-  transition: background-color 0.3s ease-in;
-}
-
-
-#colorPickerDrawing:hover, 
-#colorPickerBackground:hover, 
-#colorPickerBorder:hover {
-  background-color: var(--counter-colour);
-}
-
 .logos-div {
   display: flex;
   position: absolute;
@@ -398,6 +356,49 @@ input[type="Color"] {
 
 .logos {
   width: 1.5rem;
+}
+
+/* #endregion */
+
+
+/* #region Transitions */
+
+/* ? General, Wrapper & Headlines */
+
+.language-text {
+  transition: transform 1s ease;
+}
+
+.language-text:hover{
+  transform: scale(1.3);
+  color: var(--wkd-torquise);
+}
+
+/* ? User Input */
+
+.btn-res,
+.btn-rem,
+.bind-btn,
+#colorPickerDrawing, 
+#colorPickerBackground, 
+#colorPickerBorder {
+  transition: all 0.3s ease-in;
+  transition-property: color, background;
+}
+
+.btn-res:hover,
+.btn-rem:hover {
+  color: var(--wkd-torquise);
+}
+
+.bind-btn:hover {
+  color: var(--counter-colour);
+}
+
+#colorPickerDrawing:hover, 
+#colorPickerBackground:hover, 
+#colorPickerBorder:hover {
+  background-color: var(--counter-colour);
 }
 
 .logos:hover {
