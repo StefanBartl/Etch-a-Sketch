@@ -7,7 +7,8 @@
 ?                                          2021                                                                                                                                                                        
 ?                  ________________________________                                                                                                                                                                                                  
 !                                   Table of Content
-?                                     -) Variables & Value                                                                                                
+?                                     -) Variables & Value           
+?                                     -) Language / Translation                                                                                     
 ?                                     -) Functions
 ?                                     -) Event-Listener
 ?                                     -) Start the application
@@ -63,9 +64,6 @@ const languageText = document.querySelector(".language-text");
 const language = localStorage.language || navigator.language;
 // This is not the best way, regexp would be better to proof of 'de'
 language[0] === "d" && language[1] === "e" ? localStorage.language = "de" : "en";
-// Set correct translation text on page
-language === "en" ? languageText.innerText = ".de" : languageText.innerText = ".en";
-language === "en" ? languageText.title = "Übersetze diese Seite auf English" : languageText.title = "Translate Page to German";
 
 // ? English Library
 function English(){
@@ -90,6 +88,9 @@ mylogo.title = "Click to jump to my personal Portfolio!";
 mylogo.alt = "My actual personal Logo";
 githublogo.title="Click to jump to the Github-Repository of this project!";
 githublogo.alt= "Github Logo";
+
+languageText.innerText = ".de";
+languageText.title = "Translate Page to German";
 }
 
 // ? German Library
@@ -115,6 +116,9 @@ mylogo.title = "Klicke um zu meiner persönlichen Portfolio-Page zu springen!";
 mylogo.alt = "Mein aktuelles persönliches Logo";
 githublogo.title="klicke um zum Guthub-Repository dieses Projekts zu springen!";
 githublogo.alt= "Github Logo";
+
+languageText.innerText = ".en";
+languageText.title = "Übersetze diese Seite auf English";
 }
 
 // ? Initial Translation
