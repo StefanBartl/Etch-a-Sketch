@@ -1,4 +1,5 @@
-# Project titel here
+# Etch-a-Sketch
+
 # === Special credits to ===
 
 The Odin Project - the place where i used to learn Web Development: 
